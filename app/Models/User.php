@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -46,4 +47,28 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * Relationship method my followers
+     */
+    public function followers() 
+    {
+        return $this->hasMany('\App\Models\Follow', 'user_id', 'id');
+    }
+
+    /**
+     * Relationship method my following
+     */
+    public function following() 
+    {
+        return $this->hasMany('\App\Models\Follow', 'follow_id', 'id');
+    }
+
+    /**
+     * Relationship method list my video
+     */
+    public function my_video()
+    {
+        return $this->hasMany('\App\Models\Video', 'author_id', 'id');
+    }
 }

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiVideo</title>
+    <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/all.css">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <div id="main" class="col-md-12">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3" id="left-sidebar">
+                    <div class="clear-fix"></div>
+                    <div class="avatar">
+                        <img src="assets/images/user-pro-img.png" alt="">
+                        <h3 class="my-name">SangPham</h3>
+                    </div>
+                    <div class="follow-section">
+                        <h4>Số người đang follow: <span class="follow-section-txt-following">88</span></h4>
+                        <br/>
+                        <h4>Số người follow: <span class="follow-section-txt-follower">88</span></h4>
+                        <br>
+                        <h4>Số lượng video: <span class="follow-section-txt-videos">27</span></h4>
+                    </div>
+                    <div class="btn-logout">
+                        <a href="#" class="btn btn-danger">Đăng xuất</a>
+                    </div>
+                </div>
+                <div class="col-md-6" id="content">
+                    <div class="row">
+                        <div class="clear-fix"></div>
+                        <div class="col-md-12 poster-information">
+                            <p class="poster-name">Người nổi tiếng</p>
+                            <span class="txt-follow">Theo dõi</span>
+                            <i class="fa fa-heart-circle-plus text-danger" id="icon-like"></i>
+                            <a href="#" data-toggle="modal" data-target="#report-modal">
+                                <img src="assets/images/ic_report.png" width="18px" height="18px" alt="" id="icon-report">
+                            </a>
+                        </div>
+                        <div class="col-md-12" id="video-section">
+                            <div class="show-video" id="show-video">
+                                <iframe src="https://drive.google.com/file/d/1ef2x-XxwAtV9EBotpFguoOJoRdjhPHvk/preview" allow="autoplay"></iframe>
+                                <p id="video-caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est sit quas quae voluptatibus, ea ex.</p>
+                            </div>
+                            <div class="col-md-12" id="btn-control">
+                                <button class="btn btn-danger">
+                                    &#60;
+                                </button>
+                                <button class="btn btn-danger" data-toggle="modal" data-target="#upload-videos-modal"> <strong>+</strong> </button>
+                                <button class="btn btn-danger">
+                                    &#62;
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" id="right-chat">
+                    <div class="clear-fix"></div>
+                    <div class="col-md-12" id="box-notification">
+                        <p><span class="text-danger">LongNguyen</span> vừa đăng video.</p>
+                        <p><span class="text-danger">LongNguyen</span> vừa đăng video.</p>
+                        <p><span class="text-danger">LongNguyen</span> vừa đăng video.</p>
+                        <p><span class="text-danger">LongNguyen</span> vừa đăng video.</p>
+                        <p><span class="text-danger">LongNguyen</span> vừa đăng video.</p>
+                        <p><span class="text-danger">LongNguyen</span> vừa đăng video.</p>
+                    </div>
+                    <div class="col-md-12" id="box-comment">
+                        <div class="row">
+                            <div class="col-md-12" id="list-comment">
+                                <div class="row">
+                                    <div class="comment-item">
+                                        <div class="comment-content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                        </div>
+                                        <div class="comment-avatar">
+                                            <img src="assets/images/user-pro-img.png" width="80%" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="comment-item">
+                                        <div class="comment-content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                        </div>
+                                        <div class="comment-avatar">
+                                            <img src="assets/images/user-pro-img.png" width="80%" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="comment-item">
+                                        <div class="comment-content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                        </div>
+                                        <div class="comment-avatar">
+                                            <img src="assets/images/user-pro-img.png" width="80%" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="comment-item">
+                                        <div class="comment-content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                        </div>
+                                        <div class="comment-avatar">
+                                            <img src="assets/images/user-pro-img.png" width="80%" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="comment-item">
+                                        <div class="comment-content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                        </div>
+                                        <div class="comment-avatar">
+                                            <img src="assets/images/user-pro-img.png" width="80%" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="comment-item">
+                                        <div class="comment-content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                        </div>
+                                        <div class="comment-avatar">
+                                            <img src="assets/images/user-pro-img.png" width="80%" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="comment-item">
+                                        <div class="comment-content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                        </div>
+                                        <div class="comment-avatar">
+                                            <img src="assets/images/user-pro-img.png" width="80%" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="comment-item">
+                                        <div class="comment-content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                        </div>
+                                        <div class="comment-avatar">
+                                            <img src="assets/images/user-pro-img.png" width="80%" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="comment-item">
+                                        <div class="comment-content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                        </div>
+                                        <div class="comment-avatar">
+                                            <img src="assets/images/user-pro-img.png" width="80%" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="comment-item">
+                                        <div class="comment-content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                        </div>
+                                        <div class="comment-avatar">
+                                            <img src="assets/images/user-pro-img.png" width="80%" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12" id="form-comment">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <div class="row">
+                                            <input type="text" class="form-control" placeholder="Bạn muốn nói gì?" name="comment">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 btn-send-cmt">
+                                        <button class="btn btn-danger">
+                                            <i class="fa fa-paper-plane"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal upload video -->
+    <div class="modal fade" id="upload-videos-modal" tabindex="-1" role="dialog" aria-labelledby="upload-videos-modal"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="upload">Đăng tải video</h5>
+                </div>
+                <div class="modal-body">
+                    <label class="btn btn-danger" for="choose-video">Chọn video</label>
+                    <input type="file" accept=".mp4" value="" id="choose-video" class="hidden">
+                    <p id="txt-name-video">Videoname.mp4</p>
+                    <textarea name="caption" maxlength="255" class="form-control" id=""></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-danger">Đăng tải</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal report -->
+    <div class="modal fade" id="report-modal" tabindex="-1" role="dialog" aria-labelledby="report-modal"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="report-modal">Báo cáo vi phạm</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label for="report-content">Nội dung báo cáo (<span class="text-danger">*</span>) </label>
+                    <textarea name="report" class="form-control" id="report-content"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-danger">Gửi báo cáo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/jQuery.js"></script>
+    <script src="assets/bootstrap/dist/js/bootstrap.js"></script>
+</body>
+</html>

@@ -17,11 +17,7 @@ class TestView extends Controller
 
     public function test()
     {
-        $users = $this->userRepository->getAll();
-        return [
-            "code" => 200,
-            "message" => "success",
-            "data" => $users
-        ];
+        return view('test_vue');
+        
     }
 }

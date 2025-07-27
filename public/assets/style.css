@@ -1,0 +1,172 @@
+#main {
+    background: #121111;
+    background: linear-gradient(0deg, black 50%, rgb(63, 63, 63) 90%);
+    height: 100vh;
+}
+#login-form {
+    margin: 15% 40%;
+    background: whitesmoke;
+    text-align: center;
+    border-radius: 5px;
+}
+#login-form h3 {
+    font-weight: bold;
+}
+#login-form img {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+.clear-fix {
+    height: 15vh;
+    width: 100%;
+}
+#left-sidebar {
+    border-right: 1px solid gray;
+    height: 100vh;
+}
+#left-sidebar .avatar {
+    text-align: center;
+}
+#left-sidebar .avatar img {
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+.my-name {
+    color: whitesmoke;
+    font-weight: bolder;
+}
+.my-name:hover {
+    cursor: pointer;
+    color: gray;
+}
+.follow-section {
+    margin-top: 50px;
+    text-align: center;
+    color: whitesmoke;
+    height: 30vh;
+}
+.follow-section span {
+    color: #DB2843;
+    font-weight: bolder;
+}
+.btn-logout {
+    text-align: center;
+}
+#content {
+    border-right: 1px solid gray;
+    height: 100vh;
+}
+.poster-information {
+    display: flex;
+    font-size: 16px;
+    position: relative;
+}
+.poster-information .poster-name {
+    color: whitesmoke;
+}
+.poster-information .poster-name:hover {
+    cursor: pointer;
+    color: gray;
+}
+.poster-information .txt-follow {
+    color: #DB2843;
+    font-weight: bold;
+    margin-left: 15px;
+}
+.poster-information .txt-follow:hover {
+    cursor: pointer;
+}
+#show-video {
+    position: relative;
+}
+#show-video #video-caption {
+    position: absolute;
+    bottom: 5px;
+    left: 15px;
+    color: ghostwhite;
+    font-size: 12px;
+    width: 70%;
+    opacity: 0.7;
+}
+#show-video iframe {
+    width: 100%;
+    height: 450px;
+    border: gray;
+}
+#btn-control {
+    text-align: center;
+    margin-top: 20px;
+}
+#box-notification {
+    width: 100%;
+    height: 10vh;
+    overflow: auto;
+    border-bottom: 1px solid gray;
+    color: ghostwhite;
+}
+#box-notification span {
+    font-weight: bold;
+}
+#box-notification::-webkit-scrollbar {
+    width: 8px;
+}
+#box-notification::-webkit-scrollbar-track {
+    width: 8px;
+}
+#box-notification::-webkit-scrollbar-thumb {
+    background-color: rgb(207, 207, 207);
+}
+#list-comment {
+    width: 100%;
+    height: 40vh;
+    overflow: auto;
+    border-bottom: 1px solid gray;
+}
+#list-comment::-webkit-scrollbar {
+    width: 8px;
+}
+#list-comment::-webkit-scrollbar-track {
+    width: 8px;
+}
+#list-comment::-webkit-scrollbar-thumb {
+    background-color: rgb(207, 207, 207);
+}
+.comment-item {
+    display: flex;
+    margin-top: 15px;
+}
+.comment-content {
+    width: 80%;
+    color: whitesmoke;
+    font-size: 12px;
+    text-align: right;
+    margin-right: 5px;
+}
+.comment-avatar {
+    width: 20%;
+}
+#form-comment {
+    margin-top: 25px;;
+}
+.d-flex {
+    display: flex;
+}
+.report-section {
+    color: white;
+}
+#icon-like {
+    position: absolute;
+    right: 45px;
+}
+#icon-like:hover {
+    cursor: pointer;
+}
+#icon-report {
+    position: absolute;
+    right: 15px;
+}
+#icon-report:hover {
+    cursor: pointer;
+}
