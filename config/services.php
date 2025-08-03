@@ -31,4 +31,5 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'google_driver_folder_id' => env('GOOGLE_DRIVER_FOLDER_ID')
 ];

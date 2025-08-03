@@ -29,23 +29,26 @@
 <!-- Modal upload video -->
 <div class="modal fade" id="upload-videos-modal" tabindex="-1" role="dialog" aria-labelledby="upload-videos-modal"
     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="upload">Đăng tải video</h5>
-            </div>
-            <div class="modal-body">
-                <label class="btn btn-danger" for="choose-video">Chọn video</label>
-                <input type="file" accept=".mp4" value="" id="choose-video" class="hidden">
-                <p id="txt-name-video">Videoname.mp4</p>
-                <textarea name="caption" maxlength="255" class="form-control" id=""></textarea>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-danger">Đăng tải</button>
+    <form action="{{ url('/upload-video') }}" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="upload">Đăng tải video</h5>
+                </div>
+                <div class="modal-body">
+                    <label class="btn btn-danger" for="choose-video">Chọn video</label>
+                    <input name="video" type="file" accept=".mp4" value="" id="choose-video" class="hidden">
+                    <p id="txt-name-video">Videoname.mp4</p>
+                    <textarea name="caption" maxlength="255" class="form-control" id=""></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="submit" class="btn btn-danger">Đăng tải</button>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 
 <!-- Modal report -->

@@ -26,3 +26,4 @@ Route::get('social-login-callback/{social}', [\App\Http\Controllers\AuthControll
 Route::get('home', [\App\Http\Controllers\HomeController::class, 'index']);
 Route::get('logout', [\App\Http\Controllers\AuthController::class, 'logout']);
 
+Route::post('/upload-video', [\App\Http\Controllers\HomeController::class, 'uploadVideo']);
