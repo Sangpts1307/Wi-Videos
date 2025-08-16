@@ -53,7 +53,7 @@ class User extends Authenticatable
      */
     public function followers() 
     {
-        return $this->hasMany('\App\Models\Follow', 'user_id', 'id');
+        return $this->hasMany('\App\Models\Follow', 'follow_id', 'id');
     }
 
     /**
@@ -61,7 +61,7 @@ class User extends Authenticatable
      */
     public function following() 
     {
-        return $this->hasMany('\App\Models\Follow', 'follow_id', 'id');
+        return $this->hasMany('\App\Models\Follow', 'user_id', 'id');
     }
 
     /**

@@ -16,4 +16,14 @@ class Video extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function likes()
+    {
+        return $this->hasMany('\App\Models\Like', 'video_id', 'id');
+    }
+
+    public function author()
+    {
+        return $this->hasOne('\App\Models\User', 'id', 'author_id');
+    }
 }

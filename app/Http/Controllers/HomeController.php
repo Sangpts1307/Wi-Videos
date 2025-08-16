@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\ResponseApi;
+use App\Models\Video;
 use App\Repositories\Users\UserRepositoryInterface;
 use App\Repositories\Videos\VideoRepositoryInterface;
 use App\Services\GoogleDriverService;
@@ -14,6 +16,7 @@ class HomeController extends Controller
 {
     private $userRepository;
     private $videoRepository;
+    private $responseApi;
 
     public function __construct(
         UserRepositoryInterface $userRepository, 
@@ -22,6 +25,7 @@ class HomeController extends Controller
     {
         $this->userRepository = $userRepository;
         $this->videoRepository = $videoRepository;
+        $this->responseApi = new ResponseApi();
     }
     /**
      * Controller method render home view blade
@@ -67,6 +71,37 @@ class HomeController extends Controller
             }
         }
         return redirect('/home');
+    }
+
+    public function getVideo(Request $request) 
+    {
+        $userId = Auth::user()->id;
+        $param = $request->all();
+        $video = $this->videoRepository->getVideo($param['video_id']);
+        // Kiem tra xem da like hay chua
+        $isLike = false;
+        $myVideo = false;
+        $follow = false;
+        if (count($video->likes) > 0) {
+            foreach ($video->likes as $like) {
+                if ($like->user_id == $userId) {
+                    $isLike = true;
+                }
+            }
+        }
+        if ($video->author_id == $userId) {
+            $myVideo = true;
+        } else {
+            // Kiem tra xem da follow hay chua
+            $follow = $this->userRepository->find($userId)->followers->pluck('follow_id')->toArray();
+            if (in_array($userId, $follow)) {
+                $follow = true;
+            }
+        }
+        $video->is_like = $isLike;
+        $video->my_video = $myVideo;
+        $video->follow = $follow;
+        return $this->responseApi->success($video);
     }
 }
 
