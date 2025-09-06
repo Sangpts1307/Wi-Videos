@@ -4,9 +4,11 @@ import App from './App.vue';
 import BaseComponent from './components/BaseComponent.vue';
 import ContentComponent from './components/ContentComponent.vue';
 import ChatComponent from './components/ChatComponent.vue';
+import ReportComponent from './components/ReportComponent.vue';
 
 const app = createApp(App);
 app.component('base-component', BaseComponent);
 app.component('content-component', ContentComponent);
 app.component('chat-component', ChatComponent);
+app.component('report-component', ReportComponent);
 app.mount('#app');

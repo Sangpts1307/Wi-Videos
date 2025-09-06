@@ -52,7 +52,7 @@
 </div>
 
 <!-- Modal report -->
-<div class="modal fade" id="report-modal" tabindex="-1" role="dialog" aria-labelledby="report-modal"
+<!-- <div class="modal fade" id="report-modal" tabindex="-1" role="dialog" aria-labelledby="report-modal"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -72,7 +72,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 @vite('resources/js/app.js')
 @endsection

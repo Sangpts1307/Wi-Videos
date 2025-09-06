@@ -7,6 +7,8 @@ use App\Models\Video;
 use App\Repositories\Users\UserRepositoryInterface;
 use App\Repositories\Videos\VideoRepositoryInterface;
 use App\Services\GoogleDriverService;
+use App\Services\GoogleHangoutWebhook;
+use App\Services\GoogleSpreadSheetService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -102,6 +104,32 @@ class HomeController extends Controller
         $video->my_video = $myVideo;
         $video->follow = $follow;
         return $this->responseApi->success($video);
+    }
+
+    public function sendReport(Request $request)
+    {
+        $param = $request->all();
+        // $googleHangout = new GoogleHangoutWebhook();
+        // $googleHangout->reportForWebHook($param['report_content'], Auth::user()->name);
+        $video = Video::find($param['video_id']);
+        // Inert into google spreadsheets
+        $googleSpreadsheet = new GoogleSpreadSheetService();
+        $data = [
+            "values" => [
+                (string) $video->id,
+                $video->caption ?? "",
+                Auth::user()->name . " báo cáo " . $param['report_content'],
+                $video->video_url,
+                Carbon::now()->format('Y-m-d h:i:s')
+            ]
+        ];
+        try {
+            $googleSpreadsheet->writeSheet('Sheet1', $data);
+        } catch (\Exception $e) {
+            Log::error($e);
+        }
+        return $this->responseApi->success();
+
     }
 }
 

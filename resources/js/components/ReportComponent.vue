@@ -1,39 +1,29 @@
 <template>
-    <div class="col-md-6" id="content">
-        <div class="row">
-            <div class="clear-fix"></div>
-            <div class="col-md-12 poster-information">
-                <p class="poster-name">{{ video?.author.name }}</p>
-                <span v-if="!video?.my_video && !video?.follow" class="txt-follow">Theo dõi</span>
-                <span v-if="!video?.my_video && video?.follow" class="txt-follow">Bỏ theo dõi</span>
-                <i class="fa fa-heart-circle-plus text-danger" id="icon-like"></i>
-                <a href="#" data-toggle="modal" data-target="#report-modal">
-                    <img src="../../../public/assets/images/ic_report.png" width="18px" height="18px" alt="" id="icon-report">
-                </a>
-            </div>
-            <div class="col-md-12" id="video-section">
-                <div class="show-video" id="show-video">
-                    <iframe :src="video?.video_url" allow="autoplay"></iframe>
-                    <p id="video-caption">{{ video?.caption }}</p>
+    <!-- Modal report -->
+    <div class="modal fade" id="report-modal" tabindex="-1" role="dialog" aria-labelledby="report-modal"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="report-modal">Báo cáo vi phạm</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="col-md-12" id="btn-control">
-                    <button class="btn btn-danger" v-on:click="back()">
-                        &#60;
-                    </button>
-                    <button class="btn btn-danger" data-toggle="modal" data-target="#upload-videos-modal"> <strong>+</strong> </button>
-                    <button class="btn btn-danger" v-on:click="next()">
-                        &#62; 
-                    </button>
+                <div class="modal-body">
+                    <label for="report-content">Nội dung báo cáo (<span class="text-danger">*</span>) </label>
+                    <textarea name="report" v-model="reportContent" class="form-control" id="report-content"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-danger" v-on:click="sendReport()">Gửi báo cáo</button>
                 </div>
             </div>
         </div>
     </div>
-    <ReportComponent  :videoId="videoId"/>
 </template>
 
 <script>
-import ReportComponent from './ReportComponent.vue';
-
     //import Vue from 'vue'
     //import axios from 'axios'
     // import component1 from 'component1'
@@ -43,9 +33,9 @@ import ReportComponent from './ReportComponent.vue';
         /***********************************************************************************************************
          ******************************* Pass data to child component **********************************************
          **********************************************************************************************************/
-        props: ["txtMSG"],
+        
         // components: {component1, component2},
-        components: { ReportComponent },
+        props: ["videoId"],
 
         data() {
             /***********************************************************************************************************
@@ -53,28 +43,8 @@ import ReportComponent from './ReportComponent.vue';
              **********************************************************************************************************/
             return {
                 video: null,
-                videoId: 1
+                reportContent: ''
             }
-        },
-        /**
-         * Define global service socket
-         *
-         * Listing event from socket.io server
-         * "ServerSendCommentToClient" is the name of the channel that sends notifications to all clients installed in the server socket
-         */
-        sockets: {
-            // Send data to server
-            ClientSendCommentToServer: function (responseComment) {
-                this.comment = responseComment;
-            },
-            // Listen event from server and render data
-            ServerSendCommentToClient: function (responseComment) {
-                // Push to the comment list
-                if (responseComment.type === 'comment' && this.transaction.id == responseComment.transaction_id) {
-                    this.pushCommentToList(responseComment);
-                    this.$forceUpdate();
-                }
-            },
         },
         created() {
             /***********************************************************************************************************
@@ -113,13 +83,6 @@ import ReportComponent from './ReportComponent.vue';
             defaultFunction() {
                 this.msg = "Replace message here!";
             },
-            // Join a room
-            joinRoom() {
-                this.$socket.emit('ClientSendCommentToServer', {
-                    // Pass param obj
-                    transaction_id: 1
-                });
-            },
             /**
              * Example default function using param 
              *
@@ -130,16 +93,6 @@ import ReportComponent from './ReportComponent.vue';
                 console.log(pageNum);
                 return false;
             },
-
-            next() {
-                this.videoId = this.videoId + 1;
-                this.callAPI();
-            },
-            back() {
-                this.videoId = this.videoId - 1;
-                this.callAPI();
-            },
-
 
             /***********************************************************************************************************
              ******* Async and await functions for manipulating server-side data through internal API protocols ********
@@ -159,6 +112,19 @@ import ReportComponent from './ReportComponent.vue';
                     console.log(err);
                 }
             },
+
+            async sendReport() {
+                try {
+                    const callReportAPI = await axios.post('send-report', {
+                        /************ Attach param for request here ***************/
+                        video_id: this.videoId,
+                        report_content: this.reportContent
+                    });
+                    console.log(callReportAPI.data);
+                } catch (err) {
+                    console.log(err);
+                }
+            }
         },
     }
 </script>

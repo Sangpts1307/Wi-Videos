@@ -31,3 +31,4 @@ Route::post('/upload-video', [\App\Http\Controllers\HomeController::class, 'uplo
 
 // Local api get data for vue.js
 Route::get('/get-video', [\App\Http\Controllers\HomeController::class, 'getVideo']);
+Route::post('/send-report', [\App\Http\Controllers\HomeController::class, 'sendReport']);
